@@ -28,5 +28,7 @@ void main()
 
     printf("Main().. exiting now\n");
     // _exit(0);    // not calling registered function
-    exit(0);
+    exit(0);    // main + registered fun in kernal exit kre
 }
+
+// Maximum 32 atexit() we can define 
