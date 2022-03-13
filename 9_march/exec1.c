@@ -7,7 +7,7 @@ void main()
 
     execl("/bin/ls", "ls", "-lh", 0);   //execl is used to executed shell commands in bin directory
 
-    // execl("/home/dhruv/Desktop/Linux_Internal/9_march", "./dup1", 0 );
+    // execl("/home/dhruv/Desktop/Linux_Internal/9_march/dup1", "./dup1", 0 );
 
     printf("i executed ls program\n");
     printf("i executed ls program\n");

@@ -20,7 +20,7 @@ void main()
     {
         // sleep(3);
         printf("Parent process pid: %d\n", getpid());
-        printf("Parents process pid: %d\n", getppid());
+        printf("Parents process pid: %d\n", getppid()); //bash
     }
     // while(1);
 
