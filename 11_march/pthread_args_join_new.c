@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-static void* threadFun(void *args)
+void* threadFun(void *args)
 {
     char *s = (char *)args ;
     printf("%s\n", s);
@@ -12,7 +12,7 @@ static void* threadFun(void *args)
     return 0;
 }
 
-int main(int args, char *argv[])
+int main()                          // DOUBT
 {
     pthread_t t1;
     void *res;

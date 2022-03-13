@@ -10,13 +10,13 @@ void* threadFun(void *args)
     pid_t pid;
     pthread_t tid;
     pid = getpid();
-    tid = pthread_self();
+    tid = pthread_self();   // print calling thread id
     printf("Pid: %u tid: %u\n", (unsigned int)pid, (unsigned int)tid);
 
-    return 0;
+    return NULL;
 }
 
-int main(void)
+void main()
 {
     int err;
     err = pthread_create(&tid, NULL, threadFun, NULL);
@@ -26,7 +26,6 @@ int main(void)
     }
 
     while(1);       // ps -elf
-    sleep(3);
-
+    // sleep(3);
     exit(0);
 }
