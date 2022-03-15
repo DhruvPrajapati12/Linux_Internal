@@ -26,7 +26,7 @@ void main()
     // lseek(fd1, 4, SEEK_SET);
 
     // lseek(fd1, -50, SEEK_END);
-    // lseek(fd1, -45, SEEK_END);   //DOUBT
+    // lseek(fd1, -45, SEEK_END);  
 
     // lseek(fd1, 4, SEEK_CUR);     // DOUBT
 
