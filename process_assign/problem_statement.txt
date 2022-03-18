@@ -1,0 +1,19 @@
+1.Test whether the process(exec() system call) that replaces old program data , will inherit
+the fd's or not.
+
+2.Write a program such that parent process create two child processes,such that
+each child executes a separate task.
+
+3. A program that replaces old program with new program data and is expected to display
+the currently running processes in a hierarchical tree format.
+
+4.A processs using execl() system call should replace a new command line program.
+
+5.Write a program parent process wait untill ,while child process open a file and read file
+data into empty buffer.
+
+6.Write a program, where functions of the program are called in the reverse order of
+their function calls from main().   
+
+7. Write a program child executes(exec()) a new program , while parent waits for
+child task to get complete.
