@@ -4,7 +4,7 @@
 struct A
 {
     int roll;
-    char name[40], gender __attribute__((aligned(2)));
+    char name[40], gender __attribute__((aligned(16)));
     float height;
 }__attribute__((packed));
 
