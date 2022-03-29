@@ -6,14 +6,14 @@
 #include <unistd.h>
 #include <string.h>
 
-struct student
+struct student      // student structure
 {
     int rollNo;
     char name[50];
     char branch[50];
 };
 
-void* function(void *args)
+void* function(void *args)      // thread function
 {
     printf("Thread starts executing....\n");
     struct student *s = (struct student*)args;
@@ -30,6 +30,7 @@ void main()
 {
     pthread_t tid;
 
+    printf("Main program starts here...\n");
     struct student sd[2];
 
     sd[0].rollNo = 21;
@@ -40,11 +41,8 @@ void main()
     strcpy(sd[1].name, "Satyam Prajapati");
     strcpy(sd[1].branch, "Electrical");
 
-
-    printf("In Main program\n");
-
     pthread_create(&tid, NULL, function, sd);
     pthread_join(tid, NULL);
 
-    printf("Main ends here...\n");
+    printf("Main program ends here...\n");
 }

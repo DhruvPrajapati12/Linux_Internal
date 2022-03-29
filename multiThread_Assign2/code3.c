@@ -3,13 +3,14 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 pthread_once_t once = PTHREAD_ONCE_INIT;
 
-void* init(void)     // this function only executes once
+void initFun()     // this function only executes once
 {
+    printf("Inside initialization function..\n");
     printf("This is initialization code that only executes for first thread\n");
-    return NULL;
 }
 
 void* function(void *args)
@@ -17,15 +18,15 @@ void* function(void *args)
     char *s = (char *)args;
     printf("%s executing here...\n",s);
 
-    pthread_once(&once, init);
+    pthread_once(&once, initFun);
     return NULL;
 }
 
 void main()
 {
-    pthread_t tid1, tid2, tid3;
+    pthread_t tid1, tid2, tid3;     // declared 3 threadid
     
-    printf("In Main program\n");
+    printf("Main program starts here...\n");
 
     pthread_create(&tid1, NULL, function, "Thread 1");
     pthread_create(&tid2, NULL, function, "Thread 2");
@@ -35,7 +36,7 @@ void main()
     pthread_join(tid2, NULL);
     pthread_join(tid3, NULL);
 
-    printf("main ends here...\n");
+    printf("Main program ends here...\n");
 }
 
 // Initialisation code: code that only exexutes once. next time it will only executes after shutdown

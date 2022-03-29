@@ -7,8 +7,12 @@
 
 void *function(void *args)
 {
-    printf("In thread\n");
     printf("Thread executing...\n");
+    for(int i=1; i<=20; i++)
+    {
+        printf("%d ", i);
+    }
+    printf("\n");
     return NULL;
 }
 
@@ -16,13 +20,13 @@ int main()
 {
     pthread_t tid, tid1;
 
-    printf("In main program\n");
-
+    printf("main program starts here\n");
+    printf("Thread creating...\n");
     pthread_create(&tid, NULL, function, NULL);
     // pthread_create(&tid1, NULL, function, NULL);
     // sleep(1);
     // pthread_join(tid, NULL);
-    printf("Main program ends\n");  // here main process treminated but pending pthreads task still execute.
+    printf("here, Main program ends but pending pthreads task still execute.\n");  // here main process treminated but pending pthreads task still execute.
     pthread_exit(NULL); // main ends, pending task will be done
 }
 

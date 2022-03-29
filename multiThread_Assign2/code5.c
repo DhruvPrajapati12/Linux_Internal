@@ -15,15 +15,16 @@ void* function(void *args)
     printf("Inside thread%d\n", var);
 
     pthread_spin_lock(&lock);
-    printf("thread%d locked\n", var);
+    printf("thread%d locked using spinlock\n", var);
 
     sharedVari++;
     sleep(2);
 
-    printf("thread%d unlocked\n", var);
+    printf("thread%d: var= %d\n", var, sharedVari);
+
+    printf("thread%d unlocked using spinlock\n", var);
     pthread_spin_unlock(&lock);
     
-    printf("thread%d: var= %d\n", var, sharedVari);
     return NULL;
 }
 
