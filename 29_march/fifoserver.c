@@ -28,12 +28,12 @@ int main()
     // Read string(upto 100 characters)
 
     char serverrcv[100];        // sttring buffer
-    memset(serverrcv, 0, 100);  // set ser buff with zeros
+    memset(serverrcv, 0, 100);  // set ser buff with zeros      // DOUBT
 
     int res;
     char len;
 
-    while(1)
+    while(1)        // DOUBT
     {
         res = read(fd, &len, 1);
         if(res == 0)

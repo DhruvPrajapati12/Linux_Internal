@@ -4,24 +4,25 @@
 
 int main()
 {
-    int p[2]; // p[0], p[1] indexes of subscriber of array p
+    int fd[2]; // p[0], p[1] indexes of subscriber of array p
 
-    pipe(0);    // fd0 ---p[0]rd end and fd1---p[1] wt end
-    printf("read end of pipe = %d \t write end of pipe = %d\n", p[0], p[1]);
+    pipe(fd);    // fd0 ---p[0]rd end and fd1---p[1] wt end
+    printf("read end of pipe = %d \t write end of pipe = %d\n", fd[0], fd[1]);
 
-    if(fork())  // parent
+    int id = fork();
+    if(id == 0)  // child
     {
+        char buf[20];
+        printf("In child...\n");
+        read(fd[0], buf, sizeof(buf));
+        printf("child pro printing.. Data of the parent process.. %s\n", buf);
+    }
+    else 
+    {       // parent
         char s[20];
         printf("In parent Enter data: \n");
         scanf("%s", s);     // wait user enter "15+1"
-        write(p[1], s, strlen(s)+1);
-    }
-    else 
-    {       // child
-        char buf[20];
-        printf("In child...\n");
-        read(p[0], buf, sizeof(buf));
-        printf("child pro printing.. Data of the parent process.. %s\n", buf);
+        write(fd[1], s, strlen(s)+1);
     }
 
   return 0;

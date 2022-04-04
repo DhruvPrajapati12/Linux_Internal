@@ -21,6 +21,6 @@ int main(int argc, char *argv[])
     printf("id = %d\n", id);
     v.mtype = atoi(argv[1]);
     strcpy(v.data, argv[2]);
-    msgsnd(id, &v, strlen(v.data) + 1, 0);
+    msgsnd(id, &v, strlen(v.data) + 1, 0);  // 4th sizeof(v)
     return 0;
 }

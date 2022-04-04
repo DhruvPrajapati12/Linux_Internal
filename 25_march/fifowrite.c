@@ -5,6 +5,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+// DOUBT Not working
+
 int main()
 {
     char s[20];

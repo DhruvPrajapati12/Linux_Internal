@@ -29,7 +29,7 @@ void child_code()
 }
 int main()
 {
-    int res, i;
+    int res;
     pid_t p;
     res = pipe(fds);
 

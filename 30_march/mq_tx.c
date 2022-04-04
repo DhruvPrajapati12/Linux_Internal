@@ -21,13 +21,14 @@ int main(int argc, char *argv[])
     msg m1, m2;
 
     qid = msgget(32, IPC_CREAT | 0644);
-
+    printf("Queue created qid: %d\n", qid);
     m1.mtype = 10;
     for (i = 0; i < 100; i++)
     {
         m1.data[i] = 'a';
-        m2.mtype = 20;
+        
     }
+    m2.mtype = 20;
     for (i = 0; i < 100; i++)
     {
         m2.data[i] = 'b';
