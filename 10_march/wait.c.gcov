@@ -1,0 +1,46 @@
+        -:    0:Source:wait.c
+        -:    0:Graph:wait.gcno
+        -:    0:Data:wait.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <sys/wait.h>
+        -:    3:#include <sys/types.h>
+        -:    4:#include <stdlib.h>
+        -:    5:
+function main called 1 returned 100% blocks executed 100%
+        1:    6:void main()
+        -:    7:{
+        -:    8:    pid_t pid1; // pid_t data types for process id(Internally interger)
+        -:    9:
+        1:   10:    pid1 = fork();
+call    0 returned NAN %
+        -:   11:
+        2:   12:    if(pid1 == 0)   //child process
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   13:    {
+        1:   14:        sleep(5);
+call    0 returned 100%
+        1:   15:        printf("I am child with delay of 5 sec and my child pro pid: %d\n", getpid());
+call    0 returned 100%
+call    1 returned 100%
+        1:   16:        exit(0);
+call    0 returned 0%
+        -:   17:    }
+        -:   18:    else 
+        -:   19:    {
+        -:   20:        int pid2;
+        1:   21:        printf("I am parent pro pid: %d\n", getpid());
+call    0 returned 100%
+call    1 returned 100%
+        1:   22:        pid2 = wait(0); //on return pid of the terminated child...exit status of termnt child
+call    0 returned 100%
+        -:   23:
+        1:   24:        printf("Parent saying, child %d exited/terminated normally\n", pid2);
+call    0 returned 100%
+        1:   25:        printf("I am parent process pro pid: %d\n", getpid());
+call    0 returned 100%
+call    1 returned 100%
+        -:   26:    }
+        1:   27:}
